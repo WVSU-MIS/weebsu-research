@@ -20,7 +20,7 @@ def get_reply(input_string):
           follow the instructions below: 1. Ensure you adhere closely \
           to the given instructions of the user. 2. Think in a \
           step by step fashion."},
-          {"role": "user", "content":  + input_string}
+          {"role": "user", "content": input_string}
         ]
     )
 
