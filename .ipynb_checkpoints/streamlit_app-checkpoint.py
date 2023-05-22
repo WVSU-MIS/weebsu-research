@@ -39,7 +39,6 @@ def app():
     options = ["undergraduate", "masters", "doctorate"]
     selected_option = st.selectbox("Select your academic level:", options)
     level = selected_option
-    
     # Create an input field
     course = st.text_input('Input field of discipline or course (do not use acronyms):')
     # Display the text when the user submits the form
@@ -52,8 +51,13 @@ def app():
             st.write(history[item])
             
     study_area = st.text_input('Copy one of the recommended research areas or input your own:')
+    checkbox_state = st.checkbox('Use data science')
     if st.button('Explore Research Topics'):
         prompt = 'What are current research studies in the field of ' + study_area
+        # Check the checkbox state
+        if checkbox_state:
+            prompt += (' enhance the research study with data science ')
+        
         prompt += (' appropriate for ' + level + ' degree')
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
@@ -64,6 +68,9 @@ def app():
     if st.button('Get Research Recommendations'):
         prompt = 'Recommend a research title for ' + study_area
         prompt += (' a research study appropriate for ' + level + ' degree')
+        # Check the checkbox state
+        if checkbox_state:
+            prompt += (' enhance the research study with data science ')
         prompt += (' give a brief abstract')
         prompt += ' What type of research is appropriate? '
         prompt += 'Generate some questions to help the research conduct this study. '
