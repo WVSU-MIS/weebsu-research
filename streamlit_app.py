@@ -47,7 +47,7 @@ def app():
     # Display the text when the user submits the form
     if st.button('Submit'):
         prompt = 'What are research areas in the field of ' + course
-        prompt += (' appropriate for ' + level)
+        prompt += (' appropriate for ' + level + ' degree')
         history = append_history(history, (prompt))
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
@@ -57,6 +57,7 @@ def app():
     study_area = st.text_input('Copy one of the recommended research areas or input your own:')
     if st.button('Find Research Topics'):
         prompt = 'What are current research studies in the field of ' + study_area
+        prompt += (' appropriate for ' + level + ' degree')
         history = append_history(history, (prompt)) 
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
@@ -66,6 +67,7 @@ def app():
     topic = st.text_input('Copy one of the recommended research topics or input your own:')
     if st.button('Get Research Recommendations'):
         prompt = 'Recommend a research title for ' + study_area
+        prompt += (' appropriate for ' + level + ' degree')
         prompt += ' What type of research is appropriate? '
         prompt += 'What variables are investigated? '
         prompt += 'Desribe the methology. '
