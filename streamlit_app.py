@@ -51,7 +51,7 @@ def app():
             st.write(history[item])
             
     study_area = st.text_input('Copy one of the recommended research areas or input your own:')
-    checkbox_state = st.checkbox('Use data science')
+    checkbox_state = st.checkbox('Enhance research with data science')
     if st.button('Explore Research Topics'):
         prompt = 'What are current research studies in the field of ' + study_area
         # Check the checkbox state
