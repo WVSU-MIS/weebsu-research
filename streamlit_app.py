@@ -32,18 +32,18 @@ def get_reply(input_string):
 def app():
     history = []
     st.title("Weebsu Research Helper Chatbot")
-    st.header("AI assistant for improving research at WVSU.")
+    st.header("Leveraging AI for enhancing research at WVSU")
     
     st.write("A research helper chatbot is a computer program that can be used to help researchers with their work. Chatbots can be used to search for information on the web, in databases, and in other sources. They can also be used to retrieve specific pieces of information, such as citations, definitions, and research papers. Chatbots can be used to help researchers brainstorm and generate ideas. They can ask questions, provide feedback, and help researchers to think outside the box.")
     level = 'undergraduate'
     options = ["undergraduate", "masters", "doctorate"]
-    selected_option = st.selectbox("Select the academic level:", options)
+    selected_option = st.selectbox("Select your academic level:", options)
     level = selected_option
     
-    # Create a multiline text field
+    # Create an input field
     course = st.text_input('Input field of discipline or course (do not use acronyms):')
     # Display the text when the user submits the form
-    if st.button('Explore'):
+    if st.button('Discover research areas'):
         prompt = 'What are research areas in the field of ' + course
         prompt += (' appropriate for ' + level + ' degree')
         output = get_reply(prompt)
@@ -52,7 +52,7 @@ def app():
             st.write(history[item])
             
     study_area = st.text_input('Copy one of the recommended research areas or input your own:')
-    if st.button('Find Research Topics'):
+    if st.button('Explore Research Topics'):
         prompt = 'What are current research studies in the field of ' + study_area
         prompt += (' appropriate for ' + level + ' degree')
         output = get_reply(prompt)
