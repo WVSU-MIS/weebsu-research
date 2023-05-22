@@ -40,7 +40,7 @@ def app():
     selected_option = st.selectbox("Select your academic level:", options)
     level = selected_option
     # Create an input field
-    course = st.text_input('Input field of discipline or course (do not use acronyms):')
+    course = st.text_input('Input field of discipline or course Example: Computer Science (do not use acronyms):')
     # Display the text when the user submits the form
     if st.button('Discover research areas'):
         prompt = 'What are research areas in the field of ' + course
