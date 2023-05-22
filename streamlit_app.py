@@ -42,17 +42,16 @@ def app():
     course = st.text_area('Input field of discipline or course (do not use acronym):', height=2)
     # Display the text when the user submits the form
     if st.button('Submit'):
-        history = append_history(history, ('user: What are research areas in the field of ' + course))
         prompt = 'What are research areas in the field of ' + course
+        history = append_history(history, (prompt))
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
         for item in range(len(history)):
             st.write(history[item])
-            
-        study_area = st.text_area('Copy one of the recommended research areas or input your own:', height=5)
+        study_area = st.text_area('Copy one of the recommended research areas or input your own:', height=2)
         if st.button('Find Research Topics'):
-            history = append_history(history, ('user: What are research topics in the field of ' + study_area))
             prompt = 'What are research topics in the field of ' + study_area
+            history = append_history(history, (prompt)) 
             output = get_reply(prompt)
             history = append_history(history, ('Weebsu: ' + output))
             for item in range(len(history)):
