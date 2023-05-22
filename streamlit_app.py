@@ -51,7 +51,7 @@ def app():
             
     study_area = st.text_input('Copy one of the recommended research areas or input your own:')
     if st.button('Find Research Topics'):
-        prompt = 'What are research topics in the field of ' + study_area
+        prompt = 'What are current research studies in the field of ' + study_area
         history = append_history(history, (prompt)) 
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
