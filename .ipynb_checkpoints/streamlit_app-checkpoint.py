@@ -66,10 +66,11 @@ def app():
         prompt += (' a research study appropriate for ' + level + ' degree')
         prompt += (' give a brief abstract')
         prompt += ' What type of research is appropriate? '
+        prompt += 'Generate some questions to help the research conduct this study. '
         prompt += 'What variables are investigated? '
         prompt += 'Desribe the methology. '
         prompt += 'Give some related literature. '
-        prompt += 'Generate some questions to help the research conduct this study. '
+
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
         for item in range(len(history)):
