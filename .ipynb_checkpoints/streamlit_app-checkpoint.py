@@ -37,12 +37,17 @@ def app():
     st.write("A research helper chatbot is a computer program that can be used to help researchers with their work. Chatbots can be used to perform a variety of tasks, such as:\
     \n\nFinding and retrieving information: Chatbots can be used to search for information on the web, in databases, and in other sources. They can also be used to retrieve specific pieces of information, such as citations, definitions, and research papers. \
      \n\nBrainstorming and generating ideas: Chatbots can be used to help researchers brainstorm and generate ideas. They can ask questions, provide feedback, and help researchers to think outside the box.")
+    level = 'undergraduate'
+    options = ["undergraduate", "masters", "doctorate"]
+    selected_option = st.selectbox("Select the academic level:", options)
+    level = selected_option
     
     # Create a multiline text field
     course = st.text_input('Input field of discipline or course (do not use acronym):')
     # Display the text when the user submits the form
     if st.button('Submit'):
         prompt = 'What are research areas in the field of ' + course
+        prompt += (' appropriate for ' + level)
         history = append_history(history, (prompt))
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
