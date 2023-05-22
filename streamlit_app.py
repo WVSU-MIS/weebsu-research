@@ -39,7 +39,7 @@ def app():
      \n\nBrainstorming and generating ideas: Chatbots can be used to help researchers brainstorm and generate ideas. They can ask questions, provide feedback, and help researchers to think outside the box.")
     
     # Create a multiline text field
-    course = st.text_box('Input field of discipline or course (do not use acronym):')
+    course = st.text_input('Input field of discipline or course (do not use acronym):')
     # Display the text when the user submits the form
     if st.button('Submit'):
         prompt = 'What are research areas in the field of ' + course
@@ -49,7 +49,7 @@ def app():
         for item in range(len(history)):
             st.write(history[item])
             
-    study_area = st.text_box('Copy one of the recommended research areas or input your own:')
+    study_area = st.text_input('Copy one of the recommended research areas or input your own:')
     if st.button('Find Research Topics'):
         prompt = 'What are research topics in the field of ' + study_area
         history = append_history(history, (prompt)) 
