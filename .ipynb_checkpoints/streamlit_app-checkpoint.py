@@ -48,7 +48,6 @@ def app():
     if st.button('Submit'):
         prompt = 'What are research areas in the field of ' + course
         prompt += (' appropriate for ' + level + ' degree')
-        history = append_history(history, (prompt))
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
         for item in range(len(history)):
@@ -58,7 +57,6 @@ def app():
     if st.button('Find Research Topics'):
         prompt = 'What are current research studies in the field of ' + study_area
         prompt += (' appropriate for ' + level + ' degree')
-        history = append_history(history, (prompt)) 
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
         for item in range(len(history)):
@@ -72,8 +70,6 @@ def app():
         prompt += 'What variables are investigated? '
         prompt += 'Desribe the methology. '
         prompt += 'Give some related literature.'
-        
-        history = append_history(history, (prompt)) 
         output = get_reply(prompt)
         history = append_history(history, ('Weebsu: ' + output))
         for item in range(len(history)):
