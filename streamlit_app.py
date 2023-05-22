@@ -64,8 +64,8 @@ def app():
 
     topic = st.text_input('Copy one of the recommended research topics or input your own:')
     if st.button('Get Research Recommendations'):
-        prompt = 'Recommend a research title for ' + study_area'
-        prompt += (' appropriate for ' + level + ' degree')
+        prompt = 'Recommend a research title for ' + study_area
+        prompt += (' a research study appropriate for ' + level + ' degree')
         prompt += (' give a brief abstract')
         prompt += ' What type of research is appropriate? '
         prompt += 'What variables are investigated? '
