@@ -48,15 +48,16 @@ def app():
         history = append_history(history, ('Weebsu: ' + output))
         for item in range(len(history)):
             st.write(history[item])
-        study_area = st.text_area('Copy one of the recommended research areas or input your own:', height=2)
-        if st.button('Find Research Topics'):
-            prompt = 'What are research topics in the field of ' + study_area
-            history = append_history(history, (prompt)) 
-            output = get_reply(prompt)
-            history = append_history(history, ('Weebsu: ' + output))
-            for item in range(len(history)):
-                st.write(history[item])
-    
+            
+    study_area = st.text_area('Copy one of the recommended research areas or input your own:', height=2)
+    if st.button('Find Research Topics'):
+        prompt = 'What are research topics in the field of ' + study_area
+        history = append_history(history, (prompt)) 
+        output = get_reply(prompt)
+        history = append_history(history, ('Weebsu: ' + output))
+        for item in range(len(history)):
+            st.write(history[item])
+
     st.write('\n\n\n© 2023 West Visayas State University - Management Information System Office.')
     st.write('\n\n\nDisclaimer: Weebsu may produce inaccurate information about people, places, or facts especially if the question is outside the scope of topics it was trained on.')
     text = "*WVSU at the forefront of AI-research in Western Visayas.*"
