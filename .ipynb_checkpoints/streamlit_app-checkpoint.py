@@ -40,7 +40,6 @@ def app():
     
     # Create a multiline text field
     course = st.text_area('Input field of discipline or course (do not use acronym):', height=2)
-What are research areas in the field of 
     # Display the text when the user submits the form
     if st.button('Submit'):
         history = append_history(history, ('user: What are research areas in the field of ' + course))
