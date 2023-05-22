@@ -58,6 +58,20 @@ def app():
         for item in range(len(history)):
             st.write(history[item])
 
+    topic = st.text_input('Copy one of the recommended research topics or input your own:')
+    if st.button('Get Research Recommendations'):
+        prompt = 'Recommend a research title for ' + study_area
+        prompt += ' What type of research is appropriate? '
+        prompt += 'What variables are investigated? '
+        prompt += 'Desribe the methology. '
+        prompt += 'Give some related literature.'
+        
+        history = append_history(history, (prompt)) 
+        output = get_reply(prompt)
+        history = append_history(history, ('Weebsu: ' + output))
+        for item in range(len(history)):
+            st.write(history[item])            
+            
     st.write('\n\n\n© 2023 West Visayas State University - Management Information System Office.')
     st.write('\n\n\nDisclaimer: Weebsu may produce inaccurate information about people, places, or facts especially if the question is outside the scope of topics it was trained on.')
     text = "*WVSU at the forefront of AI-research in Western Visayas.*"
